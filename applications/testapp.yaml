@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/jstrahle/gitops-demo-developer.git
     targetRevision: main
-    path: demopapp1
+    path: demoapp1
   destination:
     server: https://kubernetes.default.svc   # the local cluster
     namespace: openshift-gitops              # fallback ns for namespaced resources
