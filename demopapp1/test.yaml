@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-config
+  namespace: virtual-machines
+data:
+  greeting: "Hello from dev-argocd"
+  managed-by: "gitops"
