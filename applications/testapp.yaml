@@ -1,6 +1,18 @@
-apiVersion: v1
-kind: Namespace
+apiVersion: argoproj.io/v1alpha1
+kind: Application
 metadata:
-  name: dev-gitops2
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+  name: misc-configs
+  namespace: gitops-dev
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/jstrahle/gitops-demo-developer.git
+    targetRevision: main
+    path: demoapp1
+  destination:
+    server: https://kubernetes.default.svc   # the local cluster
+    namespace: openshift-gitops              # fallback ns for namespaced resources
+  syncPolicy:
+    automated:
+      prune: true        # delete resources removed from Git
+      selfHeal: true     # revert manual drift back to Git state
