@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: misc-configs2
-  namespace: gitops-dev
+  namespace: dev-gitops
 spec:
   project: default
   source:
